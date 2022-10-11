@@ -1,0 +1,35 @@
+syntax ="proto3";
+
+package store;
+
+service StoreService {
+    rpc CreateStore (Store) returns (Store);
+    rpc GetStoreInfo(GetStore) returns (Store);
+    rpc UpdateStore(Store) returns (Store);
+    rpc DeleteStore (GetStore) returns (Stores);
+}
+
+message Ids{
+    
+}
+
+message GetStore{
+    int64 Id =1;
+}
+
+message Stores{
+    repeated Store stores =1;
+}
+
+message Store{
+    int64 ID = 1;
+    string Name =2;
+    Address address =3;
+}
+
+message Address{
+    int64 Id =1;
+    string District =2;
+    string Street =3;
+    int64 StoreId =4;
+}
